@@ -1,0 +1,47 @@
+import javax.swing.JOptionPane;
+
+public class IOHelper {
+	
+	public static int getInt(int low, String prompt, int high){
+		boolean passFlag = false;
+		while (!passFlag){
+			try{
+				int myNum = Integer.parseInt(JOptionPane.showInputDialog(prompt));
+				if (myNum < high && myNum > low){
+					passFlag = true;
+				}
+			} catch(Exception e){
+			JOptionPane.showMessageDialog(null, "Your entry was not a valid number, please try again.");
+		}
+		
+		return 1;
+	}
+	public static int getInt(int low, String prompt){
+		return 1;
+	}
+	public static int getInt(String prompt, int high){
+		return 1;
+	}
+	public static int getInt(String prompt){
+		return 1;
+	}
+	public static int getInt(){
+		return 1;
+	}
+	
+	public static int getDouble(double low, String prompt, double high){
+		return 1;
+	}
+	public static int getDouble(double low, String prompt){
+		return 1;
+	}
+	public static int getDouble(String prompt, double high){
+		return 1;
+	}
+	public static int getDouble(String prompt){
+		return 1;
+	}
+	public static int getDouble(){
+		return 1;
+	}
+}

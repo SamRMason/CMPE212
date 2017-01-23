@@ -1,0 +1,84 @@
+import java.util.Scanner;
+
+public class TheGameOfNim {
+	public static void main(String[] args) {
+
+		int numMarbles = randomIntBetween(10, 100);
+		int marblesRemoved = 0;
+		boolean cpuPlaysFirst = random5050();
+		boolean cpuPlaysSmart = random5050();
+		boolean cpuTurn = cpuPlaysFirst;
+
+		displayStartingInformation(numMarbles, cpuPlaysFirst, cpuPlaysSmart);
+
+		while (numMarbles > 1) {
+			if (cpuTurn) {
+				marblesRemoved = cpuMove(cpuPlaysSmart, numMarbles);
+				numMarbles = numMarbles - marblesRemoved;
+				System.out.println("\nThere are " + numMarbles + " marbles left.");
+				System.out.println("The computer chose to remove " + marblesRemoved + " marbles.\n");
+				cpuTurn = false;
+			} else {
+				marblesRemoved = playersMove(numMarbles);
+				numMarbles = numMarbles - marblesRemoved;
+				System.out.println("\nYou chose " + marblesRemoved + " marbles.");
+				System.out.println("There are now " + numMarbles + " marbles left.");
+
+			}
+		}
+	}
+
+	private static int randomIntBetween(int lower, int upper) {
+		return lower + (int) (upper * Math.random());
+	}
+
+	private static boolean random5050() {
+		if (Math.random() < 0.5)
+			return false;
+		return true;
+	}
+
+	private static void displayStartingInformation(int marbles, boolean cpuPlaysFirst, boolean cpuPlaysSmart) {
+		System.out.println("Starting with " + marbles + " marbles");
+		if (cpuPlaysFirst)
+			System.out.println("The computer is playing first.");
+		else
+			System.out.println("You get to play first.");
+		if (cpuPlaysSmart)
+			System.out.println("The computer is playing smart.");
+		else
+			System.out.println("The computer is playing randomly.");
+	}
+
+	private static int cpuMove(boolean cpuPlaysSmart, int marbles) {
+		if (cpuPlaysSmart) {
+			return 2;
+		} else {
+			return randomIntBetween(1, marbles / 2);
+		}
+	}
+
+	private static int playersMove(int numMarbles) {
+		Scanner screen = new Scanner(System.in);
+		boolean inputOK = false;
+		int marblesRemoved = 0;
+		String dump = null;
+
+		while (!inputOK) {
+			System.out.println("Please choose a number between 1 and " + (int) (numMarbles / 2) + " inclusive.");
+			try {
+				marblesRemoved = screen.nextInt();
+				dump = screen.nextLine();
+				if (marblesRemoved < 1 || marblesRemoved > (int) (numMarbles / 2)) {
+					System.out.println("You entered a number outside the possible range!");
+				} else
+					inputOK = true;
+			} catch (java.util.InputMismatchException e) {
+				System.out.println("\nYou did not enter an integer!");
+				dump = screen.nextLine();
+			}
+		}
+		screen.close();
+		return marblesRemoved;
+	}
+}

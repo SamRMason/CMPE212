@@ -1,0 +1,74 @@
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+
+public class GameOfPig {
+	// Declare Attributes - is this any better than using variables?
+	private static int playerScore = 0;
+	private static int turnValue = 0;
+	private static int cpuScore = 0;
+	private static boolean playersTurn = true;
+	private static int firstDie = 0;
+	private static int secondDie = 0;
+
+	public static void main(String[] args) {
+
+		while (playerScore < 100 && cpuScore < 100) {
+			int turnValue = 0;
+			if (playersTurn) {
+				if (!playerFirstChoice()) 
+					break;
+				if (!playerSecondChoice())
+					break;
+			}
+				else {
+
+			}
+		}
+	}
+
+	private static int rollDie() {
+		int rand = (int) (Math.random() * 6) + 1;
+		JOptionPane.showMessageDialog(null, "You have rolled a " + rand);
+		return rand;
+	}
+
+	private static boolean playerFirstChoice() {
+		Object[] options = { "Roll the Die!", "Finish Turn (Hold)", "Quit Game" };
+		
+		int n = JOptionPane.showOptionDialog(null, "It is your turn, would you like to roll your first die?", "Roll 1",
+				JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+		
+		if (n == JOptionPane.CLOSED_OPTION)
+			return false;
+		else {
+			if (n == 0)
+				firstDie = rollDie();
+			else{ // n ==1
+				playerScore = playerScore + turnValue;
+				playersTurn = false;
+			}
+		}
+		return true;
+	}
+	
+	
+	private static boolean playerSecondChoice() {
+		Object[] options = { "Roll the Die!", "Finish Turn (Hold)", "Quit Game" };
+		
+		int n = JOptionPane.showOptionDialog(null, "You just rolled a " + firstDie + "would you like to roll your second die?", "Roll 2",
+				JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+		
+		if (n == JOptionPane.CLOSED_OPTION)
+			return false;
+		else {
+			if (n == 0)
+				rollDie();
+			else{ // n ==1
+				playerScore = playerScore + turnValue;
+				playersTurn = false;
+			}
+		}
+		return true;
+	}
+	// note that closing the pop-up and hitting 'Quit Game' do the same thing.
+}

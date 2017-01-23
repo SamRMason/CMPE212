@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class GameOfPig {
+	private static int playerScore = 0;
+	private static int cpuScore = 0;
+	private static boolean playersTurn = true;
+	
+	public static void main(String[] args){
+		while(playerScore < 100 && cpuScore < 100){
+			if (playersTurn){
+				
+			}
+			else{
+				
+			}
+		}
+	}
+	
+	private static int rollDie(){
+		int rand = (int)(Math.random() * 6) + 1;
+		return rand;
+	}
+}

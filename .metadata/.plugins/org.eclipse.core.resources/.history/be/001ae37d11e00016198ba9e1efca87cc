@@ -1,0 +1,33 @@
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+
+public class GameOfPig {
+	//Declare Attributes - is this any better than using variables?
+	private static int playerScore = 0;
+	private static int cpuScore = 0;
+	private static boolean playersTurn = true;
+	
+	public static void main(String[] args){
+		Object[] options = {"Roll the Die!", "Quit Game"};
+		while(playerScore < 100 && cpuScore < 100){
+			if (playersTurn){
+				int n = JOptionPane.showOptionDialog(null, "It is your turn, would you like to roll your first die?", "Roll 1", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, options,  options[0]);
+				if (n == 0)
+					rollDie();
+				else{//(n == 1 || n == JOptionPane.CLOSED_OPTION); 
+					JOptionPane.showMessageDialog(null, "Sorry to see you so, goodbye");
+					break;
+				}
+				
+			}
+			else{
+				
+			} 
+		}
+	}
+	
+	private static int rollDie(){
+		int rand = (int)(Math.random() * 6) + 1;
+		return rand;
+	}
+}

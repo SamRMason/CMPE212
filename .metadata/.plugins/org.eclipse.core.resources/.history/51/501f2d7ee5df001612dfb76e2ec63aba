@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class TheGameOfNim {
+	public static void main(String[] args){
+		Scanner screen = new Scanner(System.in);
+		int numMarbles = randomIntBetween(10,100);
+		boolean cpuPlaysFirst = random5050();
+		boolean cpuPlaysSmart = random5050();
+		
+		displayStartingInformation(numMarbles, cpuPlaysFirst, cpuPlaysSmart);
+	}
+	
+	private static int randomIntBetween(int lower, int upper){
+		return lower + (int)(upper * Math.random());
+	}
+	
+	private static boolean random5050(){
+		if (Math.random() < 0.5)
+			return false;
+		return true;
+	}
+	
+	private static void displayStartingInformation(int marbles, boolean cpuPlaysFirst, boolean cpuPlaysSmart){
+		System.out.println("Starting with " + marbles + " marbles");
+		if (cpuPlaysFirst)
+			System.out.println("The computer is playing first.");
+		else 
+			System.out.println("You get to play first.");
+		if (cpuPlaysSmart)
+			System.out.println("The computer is playing smart.");
+		else 
+			System.out.println("The computer is playing randomly.");
+	}
+}

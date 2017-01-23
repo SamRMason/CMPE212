@@ -1,0 +1,34 @@
+
+public class IOHelper {
+	public static int getInt(int low, String prompt, int high){
+		return 1;
+	}
+	public static int getInt(int low, String prompt){
+		return 1;
+	}
+	public static int getInt(String prompt, int high){
+		return 1;
+	}
+	public static int getInt(String prompt){
+		return 1;
+	}
+	public static int getInt(){
+		return 1;
+	}
+	
+	public static int getDouble(double low, String prompt, double high){
+		return 1;
+	}
+	public static int getDouble(double low, String prompt){
+		return 1;
+	}
+	public static int getDouble(String prompt, double high){
+		return 1;
+	}
+	public static int getDouble(String prompt){
+		return 1;
+	}
+	public static int getDouble(){
+		return 1;
+	}
+}

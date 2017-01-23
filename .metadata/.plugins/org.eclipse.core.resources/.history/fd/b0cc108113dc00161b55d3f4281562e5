@@ -1,0 +1,18 @@
+import javax.swing.JOptionPane;
+public class IOHelper {
+	public static int getInt(int low, String prompt, int high){
+		return 1;
+	}
+	public static int getInt(int low, String prompt){
+		return 1;
+	}
+	public static int getInt(String prompt, int high){
+		return 1;
+	}
+	public static int getInt(String prompt){
+		return 1;
+	}
+	public static int getInt(){
+		return 1;
+	}
+}

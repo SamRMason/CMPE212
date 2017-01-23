@@ -1,0 +1,6 @@
+import javax.swing.JOptionPane;
+public class IOHelper {
+	public int getInt(int low, String prompt, int high){
+		
+	}
+}
